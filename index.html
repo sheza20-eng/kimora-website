@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Kimora is the hub of innovation, connecting powerful ideas, brands, and solutions that empower the future."
+  />
+  <title>Kimora | One Vision. Limitless Possibilities.</title>
+
+  <style>
+    :root {
+      --purple-950: #190a38;
+      --purple-900: #25104f;
+      --purple-800: #35156b;
+      --purple-700: #51258d;
+      --purple-600: #7042b6;
+      --purple-500: #8c64cc;
+      --purple-300: #c7b1ea;
+      --purple-200: #ded2f3;
+      --purple-100: #f1ebfa;
+      --lavender: #f7f3fc;
+      --pink: #fff0f6;
+      --white: #ffffff;
+      --text: #241d31;
+      --muted: #746c7f;
+      --border: rgba(53, 21, 107, 0.1);
+      --shadow-sm: 0 12px 30px rgba(41, 20, 78, 0.08);
+      --shadow-md: 0 25px 60px rgba(41, 20, 78, 0.13);
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 34px;
+      --container: 1220px;
+      --transition: 240ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--white);
+      color: var(--text);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(53, 21, 107, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .logo {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--purple-900);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(145deg, var(--purple-900), var(--purple-600));
+      box-shadow: 0 8px 22px rgba(53, 21, 107, 0.25);
+    }
+
+    .logo-mark svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 29px;
+      list-style: none;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-block: 10px;
+      color: #4d4657;
+      font-size: 0.91rem;
+      font-weight: 600;
+      transition:
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--purple-600);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--purple-800);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 25px;
+      border-radius: 13px;
+      font-weight: 700;
+      line-height: 1;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--purple-900);
+      box-shadow: 0 12px 24px rgba(37, 16, 79, 0.2);
+    }
+
+    .button-primary:hover {
+      background: var(--purple-800);
+      box-shadow: 0 18px 34px rgba(37, 16, 79, 0.28);
+    }
+
+    .button svg {
+      width: 17px;
+      height: 17px;
+      transition: transform var(--transition);
+    }
+
+    .button:hover svg {
+      transform: translateX(4px);
+    }
+
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      border-radius: 13px;
+      background: var(--purple-100);
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--purple-900);
+      transition:
+        transform var(--transition),
+        opacity var(--transition);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+      padding: 28px 0 40px;
+    }
+
+    .hero-shell {
+      position: relative;
+      min-height: 610px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      align-items: center;
+      gap: 30px;
+      padding: 74px 72px;
+      border: 1px solid rgba(112, 66, 182, 0.08);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(
+          circle at 11% 18%,
+          rgba(255, 255, 255, 0.9),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 88% 17%,
+          rgba(207, 184, 245, 0.55),
+          transparent 33%
+        ),
+        linear-gradient(120deg, #fff4f8 0%, #f8effb 46%, #eee7fb 100%);
+      box-shadow: 0 25px 80px rgba(65, 32, 108, 0.08);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: 40%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      filter: blur(2px);
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      right: -150px;
+      bottom: -220px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 1px solid rgba(112, 66, 182, 0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 610px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--purple-700);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--purple-600);
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      color: var(--purple-950);
+      font-size: clamp(3.15rem, 5.3vw, 5.7rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      margin: 30px 0 35px;
+      color: #665c70;
+      font-size: 1.08rem;
+      line-height: 1.82;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      width: min(420px, 90%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(112, 66, 182, 0.12);
+      border-radius: 50%;
+      animation: rotate 26s linear infinite;
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(74, 40, 120, 0.2);
+    }
+
+    .hero-orbit::before {
+      top: 11%;
+      right: 8%;
+      width: 17px;
+      height: 17px;
+    }
+
+    .hero-orbit::after {
+      bottom: 7%;
+      left: 15%;
+      width: 11px;
+      height: 11px;
+    }
+
+    .wave-art {
+      width: 115%;
+      max-width: 660px;
+      filter: drop-shadow(0 26px 34px rgba(69, 25, 123, 0.2));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(1deg);
+      }
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .brands-section {
+      padding: 105px 0 120px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 54px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: var(--purple-700);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      color: var(--purple-950);
+      font-size: clamp(2.3rem, 4vw, 3.7rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      max-width: 670px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .brand-card {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+    }
+
+    .brand-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(112, 66, 182, 0.22);
+      box-shadow: var(--shadow-md);
+    }
+
+    .brand-image {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: var(--purple-100);
+    }
+
+    .brand-image::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(27, 11, 58, 0.12), transparent);
+      pointer-events: none;
+    }
+
+    .brand-image svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 600ms ease;
+    }
+
+    .brand-card:hover .brand-image svg {
+      transform: scale(1.05);
+    }
+
+    .brand-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 27px 25px 26px;
+    }
+
+    .brand-name {
+      color: var(--purple-950);
+      font-size: 1.22rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-description {
+      min-height: 77px;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.68;
+    }
+
+    .brand-link {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 21px;
+      color: var(--purple-700);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .brand-link span {
+      transition: transform var(--transition);
+    }
+
+    .brand-link:hover span {
+      transform: translateX(6px);
+    }
+
+    .cta-section {
+      padding-bottom: 120px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: 62px 66px;
+      border-radius: var(--radius-lg);
+      color: var(--white);
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(173, 130, 238, 0.35),
+          transparent 30%
+        ),
+        linear-gradient(130deg, var(--purple-950), var(--purple-800));
+      box-shadow: 0 28px 70px rgba(37, 16, 79, 0.22);
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -150px;
+      width: 380px;
+      height: 380px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2.2rem, 4vw, 3.7rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+    }
+
+    .cta-content p {
+      max-width: 620px;
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1rem;
+    }
+
+    .button-light {
+      position: relative;
+      z-index: 1;
+      min-width: 160px;
+      color: var(--purple-900);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .button-light:hover {
+      background: #f8f3ff;
+    }
+
+    .site-footer {
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.76);
+      background:
+        radial-gradient(
+          circle at 90% -20%,
+          rgba(118, 72, 189, 0.4),
+          transparent 32%
+        ),
+        var(--purple-950);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr 0.7fr 1.15fr;
+      gap: 80px;
+      padding: 80px 0 65px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 22px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .footer-column p {
+      max-width: 410px;
+      font-size: 0.94rem;
+      line-height: 1.8;
+    }
+
+    .footer-learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 20px;
+      color: var(--white);
+      font-size: 0.91rem;
+      font-weight: 700;
+    }
+
+    .footer-learn-more span {
+      transition: transform var(--transition);
+    }
+
+    .footer-learn-more:hover span {
+      transform: translateX(5px);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      font-size: 0.94rem;
+      transition:
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .newsletter-form input {
+      width: 100%;
+      min-width: 0;
+      height: 52px;
+      padding: 0 17px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      outline: none;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      transition:
+        border-color var(--transition),
+        background-color var(--transition);
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.48);
+    }
+
+    .newsletter-form input:focus {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .subscribe-button {
+      min-width: 118px;
+      height: 52px;
+      padding: 0 18px;
+      border-radius: 12px;
+      color: var(--purple-950);
+      background: var(--white);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition:
+        transform var(--transition),
+        background-color var(--transition);
+    }
+
+    .subscribe-button:hover {
+      transform: translateY(-2px);
+      background: var(--purple-100);
+    }
+
+    .form-message {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #d9c8f3;
+      font-size: 0.84rem;
+    }
+
+    .footer-bottom {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+      font-size: 0.87rem;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+    }
+
+    .social-link:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 900;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--white);
+      background: var(--purple-900);
+      box-shadow: 0 12px 30px rgba(37, 16, 79, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition:
+        opacity var(--transition),
+        visibility var(--transition),
+        transform var(--transition);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-4px);
+    }
+
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .nav-menu {
+        gap: 20px;
+      }
+
+      .nav-link {
+        font-size: 0.86rem;
+      }
+
+      .hero-shell {
+        padding: 62px 48px;
+      }
+
+      .brands-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brand-image {
+        height: 290px;
+      }
+
+      .footer-main {
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .navbar > .button {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 82px;
+        right: 20px;
+        left: 20px;
+        max-height: calc(100vh - 102px);
+        overflow-y: auto;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 2px;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition:
+          opacity var(--transition),
+          visibility var(--transition),
+          transform var(--transition);
+      }
+
+      .nav-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        display: block;
+        padding: 13px 14px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+
+      .nav-link:hover {
+        background: var(--purple-100);
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .hero-shell {
+        grid-template-columns: 1fr;
+        padding: 62px 48px 30px;
+      }
+
+      .hero-content {
+        max-width: 680px;
+      }
+
+      .hero-visual {
+        min-height: 370px;
+      }
+
+      .wave-art {
+        max-width: 620px;
+      }
+
+      .cta-panel {
+        grid-template-columns: 1fr;
+        padding: 54px 46px;
+      }
+
+      .button-light {
+        width: fit-content;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-column:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .nav-menu {
+        top: 72px;
+        right: 14px;
+        left: 14px;
+        max-height: calc(100vh - 86px);
+      }
+
+      .logo {
+        font-size: 1.06rem;
+      }
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      .hero-shell {
+        min-height: auto;
+        padding: 48px 25px 25px;
+        border-radius: 25px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.75rem, 14vw, 4.2rem);
+      }
+
+      .hero-description {
+        margin: 24px 0 29px;
+        font-size: 0.98rem;
+      }
+
+      .hero-visual {
+        min-height: 285px;
+      }
+
+      .hero-orbit {
+        width: 270px;
+      }
+
+      .brands-section {
+        padding: 82px 0 90px;
+      }
+
+      .section-heading {
+        margin-bottom: 38px;
+      }
+
+      .section-heading h2 {
+        font-size: 2.5rem;
+      }
+
+      .section-heading p {
+        font-size: 0.95rem;
+      }
+
+      .brands-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-image {
+        height: 270px;
+      }
+
+      .brand-description {
+        min-height: auto;
+      }
+
+      .cta-section {
+        padding-bottom: 90px;
+      }
+
+      .cta-panel {
+        padding: 45px 27px;
+        border-radius: 25px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding: 65px 0 48px;
+      }
+
+      .footer-column:last-child {
+        grid-column: auto;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .subscribe-button {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 27px 0;
+      }
+
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#home" class="logo" aria-label="Kimora home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6 4V20M18 4L8.5 13.5M11.5 10.5L19 20"
+              stroke="white"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        KIMORA
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#solutions">Solutions</a></li>
+          <li><a class="nav-link" href="#brands">Our Brands</a></li>
+          <li><a class="nav-link" href="#resources">Resources</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="button button-primary">
+        Get Started
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M5 12H19M13 6L19 12L13 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-content reveal">
+            <span class="eyebrow">Technology for what comes next</span>
+
+            <h1 class="serif">One Vision. Limitless Possibilities.</h1>
+
+            <p class="hero-description">
+              Kimora is the hub of innovation, connecting powerful ideas,
+              brands, and solutions that empower the future.
+            </p>
+
+            <a href="#brands" class="button button-primary">
+              Explore Our Brands
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12H19M13 6L19 12L13 18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="hero-orbit"></div>
+
+            <svg
+              class="wave-art"
+              viewBox="0 0 760 520"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient
+                  id="waveGradient1"
+                  x1="60"
+                  y1="70"
+                  x2="690"
+                  y2="430"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#E7D9F8" />
+                  <stop offset="0.43" stop-color="#9D73D8" />
+                  <stop offset="1" stop-color="#321064" />
+                </linearGradient>
+
+                <linearGradient
+                  id="waveGradient2"
+                  x1="84"
+                  y1="440"
+                  x2="694"
+                  y2="110"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#35126C" />
+                  <stop offset="0.48" stop-color="#7D4FC0" />
+                  <stop offset="1" stop-color="#E6D7F7" />
+                </linearGradient>
+
+                <linearGradient
+                  id="waveGradient3"
+                  x1="85"
+                  y1="120"
+                  x2="670"
+                  y2="410"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#F4ECFC" />
+                  <stop offset="0.5" stop-color="#B38DDF" />
+                  <stop offset="1" stop-color="#5B2894" />
+                </linearGradient>
+
+                <filter
+                  id="blurGlow"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%"
+                >
+                  <feGaussianBlur stdDeviation="14" />
+                </filter>
+              </defs>
+
+              <ellipse
+                cx="393"
+                cy="284"
+                rx="235"
+                ry="134"
+                fill="#8D63C7"
+                fill-opacity="0.15"
+                filter="url(#blurGlow)"
+              />
+
+              <path
+                d="M59 313C134 192 210 162 291 200C377 240 412 352 500 365C575 376 632 323 704 214"
+                stroke="url(#waveGradient1)"
+                stroke-width="68"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M65 353C165 435 267 424 332 328C403 221 422 118 523 102C596 90 651 128 704 204"
+                stroke="url(#waveGradient2)"
+                stroke-width="51"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M86 253C170 165 253 133 334 178C423 228 444 322 533 337C597 348 647 315 686 267"
+                stroke="url(#waveGradient3)"
+                stroke-width="23"
+                stroke-linecap="round"
+                opacity="0.95"
+              />
+
+              <path
+                d="M81 391C164 435 250 415 310 351C374 283 403 198 478 172C547 148 622 176 685 239"
+                stroke="#F5EEFC"
+                stroke-opacity="0.8"
+                stroke-width="9"
+                stroke-linecap="round"
+              />
+
+              <circle cx="98" cy="249" r="12" fill="#FFFFFF" fill-opacity="0.8" />
+              <circle cx="665" cy="178" r="8" fill="#FFFFFF" fill-opacity="0.65" />
+              <circle cx="621" cy="365" r="6" fill="#FFFFFF" fill-opacity="0.75" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brands-section" id="brands">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Our Brands &amp; Platforms</span>
+
+          <h2 class="serif">
+            Innovation designed to create meaningful impact.
+          </h2>
+
+          <p>
+            Discover our suite of brands designed to create impact across
+            industries and experiences.
+          </p>
+        </div>
+
+        <div class="brands-grid">
+          <article class="brand-card reveal">
+            <div class="brand-image">
+              <svg
+                viewBox="0 0 560 430"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Abstract sound wave illustration"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <linearGradient
+                    id="soundBackground"
+                    x1="32"
+                    y1="20"
+                    x2="530"
+                    y2="410"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#19092F" />
+                    <stop offset="0.55" stop-color="#4A176E" />
+                    <stop offset="1" stop-color="#C069AA" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="soundWave"
+                    x1="70"
+                    y1="110"
+                    x2="500"
+                    y2="315"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#F9D4F0" />
+                    <stop offset="0.48" stop-color="#B889E5" />
+                    <stop offset="1" stop-color="#FFFFFF" />
+                  </linearGradient>
+                </defs>
+
+                <rect width="560" height="430" fill="url(#soundBackground)" />
+
+                <circle
+                  cx="460"
+                  cy="75"
+                  r="155"
+                  fill="#D98FC5"
+                  fill-opacity="0.16"
+                />
+
+                <circle
+                  cx="90"
+                  cy="390"
+                  r="165"
+                  fill="#A668D4"
+                  fill-opacity="0.18"
+                />
+
+                <g opacity="0.92">
+                  <rect
+                    x="85"
+                    y="192"
+                    width="10"
+                    height="48"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="109"
+                    y="168"
+                    width="10"
+                    height="96"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="133"
+                    y="136"
+                    width="10"
+                    height="160"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="157"
+                    y="178"
+                    width="10"
+                    height="76"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="181"
+                    y="112"
+                    width="10"
+                    height="208"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="205"
+                    y="151"
+                    width="10"
+                    height="130"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="229"
+                    y="87"
+                    width="10"
+                    height="258"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="253"
+                    y="145"
+                    width="10"
+                    height="142"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="277"
+                    y="104"
+                    width="10"
+                    height="224"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="301"
+                    y="165"
+                    width="10"
+                    height="104"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="325"
+                    y="125"
+                    width="10"
+                    height="184"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="349"
+                    y="175"
+                    width="10"
+                    height="84"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="373"
+                    y="147"
+                    width="10"
+                    height="140"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="397"
+                    y="184"
+                    width="10"
+                    height="66"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="421"
+                    y="162"
+                    width="10"
+                    height="108"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                  <rect
+                    x="445"
+                    y="190"
+                    width="10"
+                    height="52"
+                    rx="5"
+                    fill="url(#soundWave)"
+                  />
+                </g>
+
+                <path
+                  d="M64 352C153 303 232 355 316 310C385 273 437 208 508 197"
+                  stroke="white"
+                  stroke-opacity="0.2"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+
+            <div class="brand-content">
+              <h3 class="brand-name">SOUNDVOW</h3>
+
+              <p class="brand-description">
+                Amplifying voices through sound and storytelling.
+              </p>
+
+              <a href="#contact" class="brand-link">
+                Explore <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card reveal">
+            <div class="brand-image">
+              <svg
+                viewBox="0 0 560 430"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Artificial intelligence network illustration"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <linearGradient
+                    id="aiBackground"
+                    x1="20"
+                    y1="30"
+                    x2="535"
+                    y2="410"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#10182E" />
+                    <stop offset="0.5" stop-color="#182D5A" />
+                    <stop offset="1" stop-color="#623D99" />
+                  </linearGradient>
+
+                  <radialGradient
+                    id="aiGlow"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(285 212) rotate(90) scale(145)"
+                  >
+                    <stop stop-color="#AAE6FF" stop-opacity="0.72" />
+                    <stop offset="1" stop-color="#7B5AC6" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+
+                <rect width="560" height="430" fill="url(#aiBackground)" />
+                <circle cx="285" cy="212" r="168" fill="url(#aiGlow)" />
+
+                <g
+                  stroke="#B5E9FF"
+                  stroke-opacity="0.5"
+                  stroke-width="1.5"
+                >
+                  <path d="M139 131L217 177L277 102L349 164L428 120" />
+                  <path d="M92 236L190 218L262 279L352 227L464 257" />
+                  <path d="M126 337L207 274L290 338L381 286L469 342" />
+                  <path d="M139 131L92 236L126 337" />
+                  <path d="M217 177L190 218L207 274" />
+                  <path d="M277 102L262 279L290 338" />
+                  <path d="M349 164L352 227L381 286" />
+                  <path d="M428 120L464 257L469 342" />
+                </g>
+
+                <g fill="#D7F5FF">
+                  <circle cx="139" cy="131" r="7" />
+                  <circle cx="217" cy="177" r="9" />
+                  <circle cx="277" cy="102" r="6" />
+                  <circle cx="349" cy="164" r="10" />
+                  <circle cx="428" cy="120" r="6" />
+                  <circle cx="92" cy="236" r="6" />
+                  <circle cx="190" cy="218" r="8" />
+                  <circle cx="262" cy="279" r="10" />
+                  <circle cx="352" cy="227" r="7" />
+                  <circle cx="464" cy="257" r="9" />
+                  <circle cx="126" cy="337" r="6" />
+                  <circle cx="207" cy="274" r="7" />
+                  <circle cx="290" cy="338" r="8" />
+                  <circle cx="381" cy="286" r="10" />
+                  <circle cx="469" cy="342" r="6" />
+                </g>
+
+                <circle
+                  cx="280"
+                  cy="216"
+                  r="61"
+                  fill="#17213D"
+                  stroke="#E4FAFF"
+                  stroke-opacity="0.9"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M247 215C247 196.775 261.775 182 280 182C298.225 182 313 196.775 313 215C313 233.225 298.225 248 280 248C261.775 248 247 233.225 247 215Z"
+                  stroke="#B8F1FF"
+                  stroke-width="3"
+                />
+
+                <path
+                  d="M265 218L276 229L297 202"
+                  stroke="#E7FBFF"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <div class="brand-content">
+              <h3 class="brand-name">XENURAI</h3>
+
+              <p class="brand-description">
+                AI solutions for a smarter, more connected world.
+              </p>
+
+              <a href="#contact" class="brand-link">
+                Explore <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card reveal">
+            <div class="brand-image">
+              <svg
+                viewBox="0 0 560 430"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Location intelligence map illustration"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <linearGradient
+                    id="mapBackground"
+                    x1="30"
+                    y1="20"
+                    x2="520"
+                    y2="420"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#EDE7F8" />
+                    <stop offset="0.5" stop-color="#CABDE8" />
+                    <stop offset="1" stop-color="#8F78C4" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="pinGradient"
+                    x1="239"
+                    y1="119"
+                    x2="332"
+                    y2="306"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#7E45C3" />
+                    <stop offset="1" stop-color="#2E105C" />
+                  </linearGradient>
+                </defs>
+
+                <rect width="560" height="430" fill="url(#mapBackground)" />
+
+                <g stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="3">
+                  <path d="M-10 103C89 141 155 95 244 118C349 145 418 83 578 123" />
+                  <path d="M-18 218C87 183 174 248 267 212C352 180 438 233 578 188" />
+                  <path d="M-6 335C119 286 192 365 295 326C389 290 464 331 569 302" />
+                  <path d="M93 -20C112 81 64 150 110 236C145 302 118 369 146 452" />
+                  <path d="M246 -20C214 80 277 149 237 234C207 298 266 364 231 453" />
+                  <path d="M413 -20C458 72 393 149 439 226C478 293 427 370 466 451" />
+                </g>
+
+                <g opacity="0.38">
+                  <circle cx="116" cy="126" r="8" fill="#35156B" />
+                  <circle cx="422" cy="107" r="8" fill="#35156B" />
+                  <circle cx="123" cy="306" r="8" fill="#35156B" />
+                  <circle cx="443" cy="307" r="8" fill="#35156B" />
+                  <path
+                    d="M116 126L276 215L422 107M123 306L276 215L443 307"
+                    stroke="#35156B"
+                    stroke-width="2"
+                    stroke-dasharray="6 9"
+                  />
+                </g>
+
+                <ellipse
+                  cx="281"
+                  cy="320"
+                  rx="92"
+                  ry="28"
+                  fill="#321064"
+                  fill-opacity="0.16"
+                />
+
+                <path
+                  d="M281 82C219.144 82 169 132.144 169 194C169 279 281 354 281 354C281 354 393 279 393 194C393 132.144 342.856 82 281 82Z"
+                  fill="url(#pinGradient)"
+                />
+
+                <circle cx="281" cy="194" r="48" fill="#F8F5FC" />
+
+                <circle
+                  cx="281"
+                  cy="194"
+                  r="22"
+                  fill="#7650B4"
+                  fill-opacity="0.2"
+                  stroke="#5D2E99"
+                  stroke-width="5"
+                />
+              </svg>
+            </div>
+
+            <div class="brand-content">
+              <h3 class="brand-name">LOCALEVA</h3>
+
+              <p class="brand-description">
+                Location intelligence for better decisions, everywhere.
+              </p>
+
+              <a href="#contact" class="brand-link">
+                Explore <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="brand-card reveal">
+            <div class="brand-image">
+              <svg
+                viewBox="0 0 560 430"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Domain marketplace browser illustration"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <linearGradient
+                    id="domainBackground"
+                    x1="38"
+                    y1="20"
+                    x2="530"
+                    y2="420"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#F9F4FF" />
+                    <stop offset="0.47" stop-color="#DCD0F0" />
+                    <stop offset="1" stop-color="#9C7BCF" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="domainCard"
+                    x1="164"
+                    y1="111"
+                    x2="394"
+                    y2="335"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFFFFF" />
+                    <stop offset="1" stop-color="#F2EBFB" />
+                  </linearGradient>
+                </defs>
+
+                <rect width="560" height="430" fill="url(#domainBackground)" />
+
+                <circle
+                  cx="489"
+                  cy="68"
+                  r="130"
+                  fill="white"
+                  fill-opacity="0.23"
+                />
+
+                <circle
+                  cx="63"
+                  cy="388"
+                  r="155"
+                  fill="#5F309A"
+                  fill-opacity="0.11"
+                />
+
+                <rect
+                  x="90"
+                  y="75"
+                  width="380"
+                  height="275"
+                  rx="26"
+                  fill="url(#domainCard)"
+                  stroke="white"
+                  stroke-width="3"
+                />
+
+                <path d="M90 128H470" stroke="#D4C4EB" stroke-width="2" />
+
+                <circle cx="123" cy="102" r="7" fill="#B89DDB" />
+                <circle cx="147" cy="102" r="7" fill="#9271C0" />
+                <circle cx="171" cy="102" r="7" fill="#5E348F" />
+
+                <rect
+                  x="199"
+                  y="91"
+                  width="227"
+                  height="22"
+                  rx="11"
+                  fill="#E9E0F5"
+                />
+
+                <circle
+                  cx="280"
+                  cy="219"
+                  r="65"
+                  stroke="#653A98"
+                  stroke-width="5"
+                />
+
+                <path
+                  d="M215 219H345M280 154C298 171 308 193 308 219C308 245 298 267 280 284M280 154C262 171 252 193 252 219C252 245 262 267 280 284"
+                  stroke="#653A98"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M231 178C245 187 261 192 280 192C299 192 315 187 329 178M231 260C245 251 261 246 280 246C299 246 315 251 329 260"
+                  stroke="#653A98"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+
+                <rect
+                  x="171"
+                  y="303"
+                  width="218"
+                  height="25"
+                  rx="12.5"
+                  fill="#321064"
+                />
+
+                <circle cx="187" cy="315.5" r="5" fill="#C6B1E3" />
+
+                <path
+                  d="M211 315.5H360"
+                  stroke="#EADFF7"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <div class="brand-content">
+              <h3 class="brand-name">ATOM.COM</h3>
+
+              <p class="brand-description">
+                The smart way to find, buy, and sell domain names.
+              </p>
+
+              <a href="#contact" class="brand-link">
+                Explore <span>→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="solutions">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div class="cta-content">
+            <h2 class="serif">Building the future through connected ideas.</h2>
+
+            <p>
+              From artificial intelligence to digital media and location
+              technology, Kimora transforms ambitious ideas into platforms that
+              move industries forward.
+            </p>
+          </div>
+
+          <a href="#contact" class="button button-light">
+            Work With Us
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 12H19M13 6L19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-column" id="about">
+          <h3>About Kimora</h3>
+
+          <p>
+            Kimora brings together innovation and technology through a network
+            of brands that inspire and transform.
+          </p>
+
+          <a href="#home" class="footer-learn-more">
+            Learn More <span>→</span>
+          </a>
+        </div>
+
+        <div class="footer-column" id="resources">
+          <h3>Quick Links</h3>
+
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#brands">Our Brands</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#resources">News</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Stay Connected</h3>
+
+          <p>Join our newsletter for updates and insights.</p>
+
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <input
+              id="emailInput"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="Enter your email address"
+              aria-label="Email address"
+              required
+            />
+
+            <button class="subscribe-button" type="submit">
+              Subscribe
+            </button>
+          </form>
+
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Kimora. All rights reserved.</p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Kimora on LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M7 9V17M7 6.5V6.51M11 17V12.5C11 10.567 12.567 9 14.5 9C16.433 9 18 10.567 18 12.5V17M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Kimora on X"
+            title="X"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 4L19 20M19 4L5 20"
+                stroke="currentColor"
+                stroke-width="1.9"
+                stroke-linecap="round"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Kimora on Instagram"
+            title="Instagram"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6 15L12 9L18 15"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const newsletterForm = document.getElementById("newsletterForm");
+    const emailInput = document.getElementById("emailInput");
+    const formMessage = document.getElementById("formMessage");
+    const backToTop = document.getElementById("backToTop");
+
+    function closeMenu() {
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+
+      menuToggle.classList.toggle("active", isOpen);
+      document.body.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+        closeMenu();
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      const clickedInsideMenu = navMenu.contains(event.target);
+      const clickedToggle = menuToggle.contains(event.target);
+
+      if (
+        navMenu.classList.contains("open") &&
+        !clickedInsideMenu &&
+        !clickedToggle
+      ) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      }
+    });
+
+    newsletterForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        formMessage.textContent = "Please enter a valid email address.";
+        emailInput.focus();
+        return;
+      }
+
+      formMessage.textContent =
+        "Thank you for subscribing to Kimora updates.";
+      newsletterForm.reset();
+    });
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const pageSections = document.querySelectorAll("section[id], footer[id]");
+
+    const navigationObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const sectionId = entry.target.getAttribute("id");
+
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${sectionId}`
+            );
+          });
+        });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0
+      }
+    );
+
+    pageSections.forEach((section) => {
+      navigationObserver.observe(section);
+    });
+  </script>
+</body>
+</html>
